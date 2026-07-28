@@ -5,7 +5,7 @@ pipeline {
         jdk "jdk21"
         maven "maven3"
     }
-    
+
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
     }
@@ -71,7 +71,7 @@ pipeline {
         }
         stage('K8s Deploy') {
             steps {
-               withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: ' devopsshack-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', serverUrl: 'https://08D790A58E638F573FAF7D697D694185.yl4.ap-southeast-1.eks.amazonaws.com']]) {
+               withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'devopsshack-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', serverUrl: 'https://08D790A58E638F573FAF7D697D694185.yl4.ap-southeast-1.eks.amazonaws.com']]) {
                     sh "kubectl apply -f deployment-service.yml"
                     sleep 20
                 }
@@ -79,7 +79,7 @@ pipeline {
         }
         stage('Verify Deployment') {
             steps {
-               withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: ' devopsshack-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', serverUrl: 'https://08D790A58E638F573FAF7D697D694185.yl4.ap-southeast-1.eks.amazonaws.com']]) {
+               withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'devopsshack-cluster', contextName: '', credentialsId: 'k8-cred', namespace: 'webapps', serverUrl: 'https://08D790A58E638F573FAF7D697D694185.yl4.ap-southeast-1.eks.amazonaws.com']]) {
                     sh "kubectl get pods"
                     sh "kubectl get service"
                 }
