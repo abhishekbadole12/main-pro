@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>bloggin-app</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<name>blogging-app</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -103,11 +103,11 @@
         <repository>
             <id>maven-releases</id>
 			<!-- Here Sonar Nexus IP -->
-            <url>http://13.212.22.143:8081/repository/maven-releases/</url> 
+            <url>http://13.212.173.150:8081/repository/maven-releases/</url> 
         </repository>
         <snapshotRepository>
             <id>maven-snapshots</id>
-            <url>http://13.212.22.143:8081/repository/maven-snapshots/</url>
+            <url>http://13.212.173.150:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
