@@ -270,7 +270,7 @@ pipeline {
                         kubectl apply -f deployment-service.yml
 
                        kubectl set image deployment/bloggingapp-deployment \
-                        gab-blogging-app=abhishekbadole12/gab-blogging-app:${IMAGE_TAG} \
+                        bloggingapp=${DOCKER_IMAGE}:${IMAGE_TAG} \
                         -n webapps
 
                         kubectl rollout status deployment/bloggingapp-deployment \
