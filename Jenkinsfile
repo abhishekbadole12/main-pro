@@ -269,11 +269,11 @@ pipeline {
 
                         kubectl apply -f deployment-service.yml
 
-                        kubectl set image deployment/gab-blogging-app \
-                            gab-blogging-app=${DOCKER_IMAGE}:${IMAGE_TAG} \
-                            -n webapps
+                       kubectl set image deployment/bloggingapp-deployment \
+                        gab-blogging-app=abhishekbadole12/gab-blogging-app:${IMAGE_TAG} \
+                        -n webapps
 
-                        kubectl rollout status deployment/gab-blogging-app \
+                        kubectl rollout status deployment/bloggingapp-deployment \
                             -n webapps \
                             --timeout=180s
                     """
@@ -300,11 +300,11 @@ pipeline {
 
                         echo "======================================"
                         echo "Deployment:"
-                        kubectl get deployment gab-blogging-app -n webapps
+                        kubectl get deployment bloggingapp-deployment -n webapps
 
                         echo "======================================"
                         echo "Current Image:"
-                        kubectl get deployment gab-blogging-app \
+                        kubectl get deployment bloggingapp-deployment \
                             -n webapps \
                             -o=jsonpath='{.spec.template.spec.containers[*].image}'
 
